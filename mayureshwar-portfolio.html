@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayureshwar Bhardwaj — Software Developer</title>
+<meta name="description" content="Portfolio of Mayureshwar Bhardwaj, an aspiring software developer working with Java, Spring Boot, and SQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F5F6F1;
+    --surface: #FFFFFF;
+    --ink: #16213D;
+    --body: #414A5C;
+    --muted: #6C7488;
+    --accent: #2F6F4E;
+    --accent-soft: #E4EEE8;
+    --gold: #A9781F;
+    --rule: #DEE1D7;
+    --max-w: 880px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--body);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  section { padding: 76px 0; }
+  section + section { border-top: 1px solid var(--rule); }
+
+  .eyebrow-rule {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .eyebrow-rule h2 { font-size: 30px; font-weight: 600; white-space: nowrap; }
+  .eyebrow-rule .line { flex: 1; height: 1px; background: var(--rule); }
+  .section-note { color: var(--muted); font-size: 15px; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(245,246,241,0.92);
+    backdrop-filter: saturate(140%) blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  nav .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--body);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  nav a:hover { color: var(--ink); border-color: var(--accent); }
+  @media (max-width: 600px) {
+    nav ul { gap: 16px; }
+    nav ul li:nth-child(4) { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-top: 68px; padding-bottom: 68px; border-top: none; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  .hero .role {
+    margin-top: 14px;
+    font-size: 19px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .hero .lede {
+    margin-top: 22px;
+    max-width: 54ch;
+    font-size: 17px;
+    color: var(--body);
+  }
+  .hero .signature-rule {
+    width: 64px;
+    height: 3px;
+    background: var(--gold);
+    margin: 26px 0 0 0;
+    border-radius: 2px;
+  }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 26px 24px;
+  }
+  .contact-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  .contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+  }
+  .contact-list svg { flex: none; color: var(--accent); }
+  .contact-list a {
+    text-decoration: none;
+    word-break: break-word;
+  }
+  .contact-list a:hover { color: var(--accent); }
+
+  @media (max-width: 700px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 38px; }
+  }
+
+  /* ---------- Skills ---------- */
+  .skill-row {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .skill-row + .skill-row { border-top: 1px solid var(--rule); }
+  .skill-row .label {
+    font-size: 15px;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  .tag-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--accent-soft);
+    border: 1px solid #CFE1D6;
+    padding: 5px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    .skill-row { grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* ---------- Projects ---------- */
+  .project {
+    padding: 34px 0;
+  }
+  .project + .project { border-top: 1px solid var(--rule); }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .project h3 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .project .repo-link {
+    font-size: 14.5px;
+    text-decoration: none;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 1px;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .project .repo-link:hover { color: var(--accent); border-color: var(--accent); }
+  .project .repo-link svg { flex: none; }
+  .project .desc {
+    margin-top: 14px;
+    max-width: 62ch;
+    font-size: 16px;
+  }
+  .project .tag-group { margin-top: 16px; }
+
+  /* ---------- Education / certifications ---------- */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 18px 0;
+  }
+  .edu-row + .edu-row { border-top: 1px solid var(--rule); }
+  .edu-row .what h3 { font-size: 19px; font-weight: 600; }
+  .edu-row .what p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+  .edu-row .when {
+    font-size: 15px;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 4px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 48px 0 60px; border-top: 1px solid var(--rule); }
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  footer .msg h2 { font-size: 26px; font-weight: 600; }
+  footer .msg p { margin: 8px 0 0; color: var(--muted); max-width: 42ch; }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-links a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .footer-links a:hover { color: var(--accent); border-color: var(--accent); }
+  .copyright { margin-top: 40px; color: var(--muted); font-size: 13.5px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">MB</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Mayureshwar<br>Bhardwaj</h1>
+      <p class="role">Aspiring Software Developer</p>
+      <p class="lede" id="about">
+        I build Java applications backed by relational databases — from schema
+        design and JDBC connectivity through to Spring Boot services — and I'm
+        starting to bring machine learning fundamentals into my project work.
+        I'm looking for an entry-level development role where I can put OOP,
+        SQL, and steady problem-solving to work on real products.
+      </p>
+      <div class="signature-rule"></div>
+    </div>
+
+    <div class="contact-card">
+      <h3>Get in touch</h3>
+      <ul class="contact-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M4 6l8 7 8-7" stroke-linejoin="round"/></svg>
+          <a href="mailto:mayurbhardwaj105@gmail.com">mayurbhardwaj105@gmail.com</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+919650735307">+91 96507 35307</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ghaziabad, India
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://www.linkedin.com/in/mayureshwar-bhardwaj" target="_blank" rel="noopener">LinkedIn</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.89.12 3.19.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3z"/></svg>
+          <a href="https://github.com/mayurbhardwaj105-ui" target="_blank" rel="noopener">github.com/mayurbhardwaj105-ui</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow-rule"><h2>Skills</h2><div class="line"></div></div>
+
+    <div class="skill-row">
+      <div class="label">Languages</div>
+      <div class="tag-group">
+        <span class="tag">Java</span><span class="tag">Python</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="label">Frameworks</div>
+      <div class="tag-group">
+        <span class="tag">Spring Boot</span><span class="tag">Spring MVC</span><span class="tag">Spring Data JPA</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="label">Database</div>
+      <div class="tag-group">
+        <span class="tag">MySQL</span><span class="tag">Schema Design</span><span class="tag">JDBC</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="label">Security &amp; web</div>
+      <div class="tag-group">
+        <span class="tag">JWT</span><span class="tag">Cookie sessions</span><span class="tag">Secure URLs</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="label">Cloud &amp; media</div>
+      <div class="tag-group">
+        <span class="tag">Cloudinary</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="label">Machine learning</div>
+      <div class="tag-group">
+        <span class="tag">Unsupervised Learning</span><span class="tag">Clustering</span><span class="tag">Scikit-learn</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <div class="label">Tools &amp; practice</div>
+      <div class="tag-group">
+        <span class="tag">Git/GitHub</span><span class="tag">OOP</span><span class="tag">Exception Handling</span><span class="tag">Input Validation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow-rule"><h2>Projects</h2><div class="line"></div></div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Salon Customer Registration &amp; Authentication</h3>
+        <a class="repo-link" href="https://github.com/mayurbhardwaj105-ui/Salon" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.89.12 3.19.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3z"/></svg>
+          View repository
+        </a>
+      </div>
+      <p class="desc">
+        A registration and login system for a salon's customers. Passwords
+        are hashed with BCrypt, and a signed JWT is issued on login and
+        stored in an HTTP-only cookie, so protected routes can verify a
+        customer's session without keeping server-side state.
+      </p>
+      <div class="tag-group">
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">JWT</span><span class="tag">Cookies</span><span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>StreamVault — Cloud Video Hosting &amp; Playback</h3>
+        <a class="repo-link" href="https://github.com/mayurbhardwaj105-ui/video-player" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.89.12 3.19.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3z"/></svg>
+          View repository
+        </a>
+      </div>
+      <p class="desc">
+        A video platform that uploads and stores content directly in
+        Cloudinary rather than on local or server storage. Playback URLs are
+        generated fresh and signed, so videos render on the site without
+        exposing a permanent, shareable storage path.
+      </p>
+      <div class="tag-group">
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Cloudinary</span><span class="tag">MySQL</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Smart Card Clustering</h3>
+        <a class="repo-link" href="https://github.com/mayurbhardwaj105-ui/smart_cart" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.19 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.89.12 3.19.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .3z"/></svg>
+          View repository
+        </a>
+      </div>
+      <p class="desc">
+        Groups smart card usage data into behavioural segments using
+        unsupervised learning. The pipeline scales the raw features, uses
+        the elbow method and silhouette score to choose a cluster count,
+        fits K-Means, and visualizes the result with a PCA projection.
+      </p>
+      <div class="tag-group">
+        <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">K-Means</span><span class="tag">Pandas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow-rule"><h2>Education</h2><div class="line"></div></div>
+
+    <div class="edu-row">
+      <div class="what">
+        <h3>B.Tech, Computer Science and Engineering</h3>
+        <p>Inderprastha Engineering College, Ghaziabad, U.P.</p>
+      </div>
+      <div class="when">2021 – 2025</div>
+    </div>
+    <div class="edu-row">
+      <div class="what">
+        <h3>Cyber Security</h3>
+        <p>Certification — ICT Academy</p>
+      </div>
+      <div class="when"></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="msg">
+        <h2>Let's work together</h2>
+        <p>Open to entry-level software development roles — reach out any time.</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:mayurbhardwaj105@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/mayureshwar-bhardwaj" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/mayurbhardwaj105-ui" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 Mayureshwar Bhardwaj.</p>
+  </div>
+</footer>
+
+</body>
+</html>
