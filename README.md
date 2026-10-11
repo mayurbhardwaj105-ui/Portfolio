@@ -6,7 +6,6 @@ It is a single static page (`index.html`) covering experience, skills, projects,
 
 ## Projects featured
 
-- **Restaurant Prediction App** — next-day footfall forecasting with a Streamlit dashboard (Python, Scikit-learn, Pandas, Streamlit); code in [`restaurant-prediction-app/`](restaurant-prediction-app)
 - **StreamVault** — cloud video hosting and playback platform (Java, Spring Boot, Cloudinary, MySQL)
 - **Salon Customer Registration & Authentication** — JWT-based auth backend (Python, FastAPI, PyJWT, MySQL)
 - **Smart Card Clustering** — unsupervised learning on smart card usage data (Python, Scikit-learn)
